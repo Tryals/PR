@@ -1,0 +1,78 @@
+﻿<Window x:Class="ExamplePracWork13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamplePracWork13"
+        mc:Ignorable="d"
+        Title="Library" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <!--Левая часть 
+        Кнопочное меню
+        -->
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <Button Name="BtnAdd" Content="Добавить"
+                    Width="100"
+                    Height="30"
+                    Click="BtnAdd_Click"/>
+            <TextBlock Width="100"
+                       Text="Поиск"/>
+            <TextBox Width="100"
+                     Name="TxtSearch"
+                     TextChanged="TxtSearch_TextChanged"/>
+            <TextBlock Width="120"
+                       Text="Фильтр по адресу"/>
+            <ComboBox Name="CmbFiltr"
+                      SelectionChanged="CmbFiltr_SelectionChanged"/>
+            <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Height="130" Width="130"
+                    Margin="5">
+                <TextBlock Text="Сортировка по читателю" Margin="5"
+                       Width="100"/>
+                <RadioButton Content="От А до Я"
+                             Margin="5"
+                             Name="RbUp"
+                             Checked="RbUp_Checked"/>
+                <RadioButton Content="От Я до А"
+                                 Margin="5"
+                                 Name="RbDown"
+                                 Checked="RbDown_Checked"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Центральная часть 
+        Задание
+        Таблица-->
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Top"
+                    Grid.Column="1">
+            <DataGrid Name="DtgListWorkers"
+                      IsReadOnly="True"
+                      Margin="5"
+                      AutoGenerateColumns="False"
+                      VerticalScrollBarVisibility="Auto">
+                <!--Создание колонок таблицы и привязка к свойствам класса-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="ФИО" Width="*"
+                        Binding="{Binding FullName}"/>
+                    <DataGridTextColumn
+                        Header="Должность" Width="*"
+                        Binding="{Binding Work}"/>
+                    <DataGridTextColumn
+                        Header="Год поступления" Width="*"
+                        Binding="{Binding Year}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        
+        </StackPanel>
+    </Grid>
+</Window>

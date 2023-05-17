@@ -1,0 +1,36 @@
+﻿<Window x:Class="ExamplePracWork13.WindowAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamplePracWork13"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="WindowAdd" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="ФИО"/>
+                <TextBox Name="TxbFullName"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Должность"/>
+                <TextBox Name="TxbWork"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Год поступления на работу"/>
+                <ComboBox Name="CmbYear" Width="200"
+                          Height="50"
+                          Margin="5"/>
+            </StackPanel>
+            <Button Content="Добавить" 
+                    Name="BtnAddReader"
+                    Click="BtnAddWorker_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
